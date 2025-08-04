@@ -1,0 +1,812 @@
+html {scroll-behavior: smooth;}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+@keyframes lightTheme {
+    0% {
+        background-color: rgb(244, 244, 244);
+    }
+    50% {
+        background-color: rgb(237, 237, 237);
+    }
+    100% {
+        background-color: rgb(244, 244, 244);
+    }
+}
+
+#headerButtonsSec {
+    display: flex;
+    gap: 1rem;
+}
+
+.headerButtons {
+    width: 5.5rem;
+    text-decoration: none;
+    background-color: rgba(0, 0, 139, 0.5);
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1.3rem;
+    box-shadow:
+        -5px -5px 1px rgba(159, 159, 159, 0.7),
+        3px 6px 12px rgba(191, 191, 191, 0.5); 
+    /*transition: all 0.55s ease-in-out;*/
+    opacity: 0;
+    transform: translateY(-40px); /* Adjust as needed for desired starting point */
+    transition: opacity 0.8s ease-out, transform 1.2s ease-out; /* Animasyon geçişi */
+}
+
+.headerButtons.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#header {
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    align-items: center;
+    border-bottom: 0.1rem solid white;
+    background-color: rgb(255, 255, 255);
+}
+#myname>h2 {margin: 0px;}
+#myname {
+    color: white;
+    width: 15rem;
+    height: 4rem;
+    background-color: rgba(0, 0, 139, 0.5);
+    border-radius: 12px;
+    box-shadow:
+        -8px -8px 1px rgba(159, 159, 159, 0.7),
+        4px 12px 12px rgba(191, 191, 191, 0.5); 
+    transition: all 1.2s ease-in-out;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    #header {
+        height: 5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }    
+    #headerButtons {
+        width: 1.5rem;
+        font-size: 0.1rem;
+    }
+}
+
+
+
+#myname:hover, .headerButtons:hover{
+    cursor: pointer;
+    transform: scale(1.10   );
+    background-color: rgb(148, 148, 148);
+    box-shadow:
+        -8px -8px 1px rgba(255, 255, 255, 0.7),
+        4px 12px 12px rgba(221, 221, 221, 0.5); 
+}
+
+.headerButtons:hover{transform: scale(1.08);}
+
+
+#entranceContent, #projects {
+    display: flex;
+    background-image: linear-gradient(to bottom,
+    rgba(0, 0, 139, 0.5) 0%,         /* Koyu Mavi (Yarı Şeffaf) */
+    rgba(0, 0, 139, 0.3) 25%,        /* Biraz daha açık koyu mavi */
+    #ADD8E6 50%,                     /* Açık Mavi */
+    #E0FFFF 75%,                     /* Çok Açık Mavi / Cyan */
+    #F0F8FF 100%                     /* En Açık Mavi / Alice Blue */
+    );
+    background-size: 100% 200%; /* Arka planı dikeyde iki katına çıkarıyoruz */
+    animation: flowBackground 15s linear infinite; /* Animasyon hızı ve tekrarı */
+}
+
+
+@keyframes flowBackground {
+    0% {
+        background-position-y: 0%; /* Başlangıçta en üstte */
+    }
+    100% {
+        background-position-y: 100%; /* Aşağıya doğru kaydır (gradyanın tamamı) */
+    }
+}
+
+#entranceRight {
+    width: 50%;
+    padding-right: 3rem;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4.5rem;
+}
+
+#entranceLeft {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;    
+}
+
+
+#entranceLeft p, #aboutRight>p, #projectText>p, .projectDescription, .skillText, #contactSpan{
+    text-align: left;
+    font-size: 1.1rem;
+    font-family: "Merriweather", serif;
+    font-weight: 400;
+    color: rgb(124, 124, 124);
+}
+#introduceText {
+    font-size: 2.5rem; 
+    font-family: "Inter", sans-serif;
+}
+#introduceText > span, #projects span, #skills span{color:rgba(0, 0, 139, 0.5);}
+
+.textShadow {
+    text-shadow: 0.5rem 0.3rem 0.5rem rgba(78, 78, 253, 0.5);
+    animation: textTransition 6s infinite;
+}
+
+@keyframes textTransition {
+    50% {
+        text-shadow: 1.5rem 0.9rem 1.5rem rgba(78, 78, 253, 0.5);
+    }
+}
+
+#entranceRight > img {
+    margin-top: 5rem;
+    width: 30rem;
+    border-radius: 50%;
+    border: 0.25rem solid white;
+    animation: animatedShadow 4s infinite alternate ease-in-out;
+}
+
+@keyframes animatedShadow {
+    0% {
+        box-shadow:
+            0 0 3px 1px rgba(0, 0, 0, 0.5),       /* Koyu Siyah */
+            0 0 5px 2px rgba(30, 30, 30, 0.4),    /* Hafif Açık Siyah */
+            0 0 7px 3px rgba(0, 0, 139, 0.3),     /* Koyu Mavi */
+            0 0 9px 4px rgba(65, 105, 225, 0.2),   /* Açık Mavi */
+            0 0 11px 5px rgba(80, 80, 80, 0.15),  /* Orta Gri */
+            0 0 13px 6px rgba(120, 120, 120, 0.1), /* Açıkça Gri */
+            0 0 15px 7px rgba(170, 170, 170, 0.05);/* Daha Açık Gri */
+    }
+    50% {
+        box-shadow:
+            0 -30px 35px 5px rgba(0, 0, 0, 0.7),       /* Yukarı Koyu Siyah (daha belirgin) */
+            0 -20px 30px 8px rgba(30, 30, 30, 0.6),    /* Yukarı Hafif Açık Siyah */
+            0 -10px 25px 12px rgba(0, 0, 139, 0.5),    /* Yukarı Koyu Mavi */
+            0 0px 20px 15px rgba(65, 105, 225, 0.4),   /* Orta Açık Mavi */
+            0 10px 15px 12px rgba(80, 80, 80, 0.3),    /* Aşağı Orta Gri */
+            0 15px 10px 8px rgba(120, 120, 120, 0.2),   /* Aşağı Açıkça Gri */
+            0 20px 5px 5px rgba(170, 170, 170, 0.1);   /* Aşağı Daha Açık Gri */
+    }
+    100% {
+        box-shadow:
+            0 0 3px 1px rgba(0, 0, 0, 0.5),
+            0 0 5px 2px rgba(30, 30, 30, 0.4),
+            0 0 7px 3px rgba(0, 0, 139, 0.302),
+            0 0 9px 4px rgba(65, 105, 225, 0.2),
+            0 0 11px 5px rgba(80, 80, 80, 0.15),
+            0 0 13px 6px rgba(120, 120, 120, 0.1),
+            0 0 15px 7px rgba(170, 170, 170, 0.05);
+    }
+}
+#aboutProfile {
+    width: 60%;
+}
+#aboutContent {
+    width: 100%;
+    height: 25rem;
+    display: flex;
+    margin-top: 3rem;
+    margin-bottom: 6rem;
+    opacity: 0;
+    transform: translateX(-100px); /* Adjust as needed for desired starting point */
+    transition: opacity 0.8s ease-out, transform 4s ease-out; /* Animasyon geçişi */
+}
+
+
+#aboutContent.is-visible{
+    /* Final state: visible and in its original position */
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#aboutLeft {
+    width: 40%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+#aboutRight {
+    margin-left: 5rem;    
+    width: 50%;
+}
+
+.sectionTre {color: rgba(0, 0, 139, 0.5); font-size: 1.2rem;}
+
+#aboutRight>p {font-size: 1.1rem; margin-bottom: 0px;}
+
+#aboutRight>h2, #projects h2, #skills h2, .contactInfo{
+    font-family: "Inter", sans-serif;;
+    margin-top: 25px;
+    color:rgba(0, 0, 139, 0.5);
+    font-size: 1.4rem;
+    animation: h2Transition 6s infinite;
+    text-shadow: 0.4rem 0.2rem 0.2rem #4e4efd80;
+}
+
+#aboutRight>#who, #skillsTitleText>#skillsMain{font-size: 1.8rem;}
+
+@keyframes h2Transition {
+    50% {
+        text-shadow: 1.2rem 0.6rem 1rem rgba(78, 78, 253, 0.5);
+    }
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 5rem;
+    width: 100%;
+}
+
+
+#projects>img {filter: drop-shadow(8px 8px 10px #888888); width: 100%;}
+
+#projectGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 300px)); 
+    grid-template-rows: repeat(2, minmax(200px, 400px));
+    gap: 2rem;
+}
+
+.projectBox{
+    padding: 1rem;
+    background-color: white;
+    border: 0.25rem solid rgba(78, 78, 253, 0.5);
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.6s ease-out, filter 0.6s ease-out, box-shadow 0.6s ease-out;
+}
+
+.projectBox:hover {
+    transform: scale(1.5);
+    animation: animatedShadow 4s infinite alternate ease-in-out;
+}
+
+#projectGrid:hover .projectBox {
+    filter: blur(2px); 
+    transform: scale(0.95); 
+    opacity: 0.7; 
+    box-shadow: none;
+}
+
+#projectGrid:hover .projectBox:hover {
+    filter: blur(0px); 
+    transform: scale(1.30); 
+    opacity: 1; 
+    z-index: 10;
+    animation: animatedShadow 4s infinite alternate ease-in-out; 
+}
+
+
+.projectImg{
+    width: 100%;
+    border-radius: 4%;
+    border: 0.2rem solid rgba(78, 78, 253, 0.5);
+}
+
+#projectText {
+    margin-left: 10%;
+    align-self: flex-start;
+    text-align: left;
+    width: 50%;
+}
+
+.projectBox>.projectTitle {margin-bottom: 0px;}
+
+#projectText>#what {font-size: 1.8rem;}
+
+.projectDescription {
+    max-width: 255px;
+    font-size: 0.8rem;
+    padding-right: 5px;
+    transition: all 0.3s ease-in-out; /* Animasyonlar için */
+    overflow: hidden;
+    overflow-wrap: break-word;
+}
+
+.projectDescription:hover {overflow: auto;}
+
+/*below is skills part*/
+
+
+#skills {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0rem;
+    gap: 2.5rem;
+    opacity: 0;
+    transform: translateY(150px); /* Adjust as needed for desired starting point */
+    transition: opacity 0.8s ease-out, transform 2s ease-out; /* Animasyon geçişi */
+}
+
+#skills.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#skillsTitleText{
+    width: 50%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.skillContent {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.skillParagraph {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skillText {
+    display: flex;
+    align-items: center;
+}
+
+.skillImg {
+    width: 20%;
+    border: 0.5rem solid rgba(78, 78, 253, 0.5);
+    border-radius: 10%;
+    animation: skillsShadow 5s infinite alternate ease-in-out;
+}
+
+@keyframes skillsShadow {
+    0% {
+        box-shadow:
+            0 0 3px 1px rgba(0, 0, 0, 0.5),       /* Koyu Siyah */
+            0 0 5px 2px rgba(30, 30, 30, 0.4),    /* Hafif Açık Siyah */
+            0 0 7px 3px rgba(0, 0, 139, 0.3),     /* Koyu Mavi */
+            0 0 9px 4px rgba(65, 105, 225, 0.2),   /* Açık Mavi */
+            0 0 11px 5px rgba(80, 80, 80, 0.15),  /* Orta Gri */
+            0 0 13px 6px rgba(120, 120, 120, 0.1), /* Açıkça Gri */
+            0 0 15px 7px rgba(170, 170, 170, 0.05);/* Daha Açık Gri */
+    }
+    50% {
+        box-shadow:
+            0 -10px 2.5px 5px rgba(0, 0, 0, 0.7),       /* Yukarı Koyu Siyah (daha belirgin) */
+            0 -7.5px 5px 8px rgba(30, 30, 30, 0.6),    /* Yukarı Hafif Açık Siyah */
+            0 -5px 7.5px 12px rgba(0, 0, 139, 0.5),    /* Yukarı Koyu Mavi */
+            0 0px 10px 15px rgba(65, 105, 225, 0.4),   /* Orta Açık Mavi */
+            0 5px 7.5px 12px rgba(80, 80, 80, 0.3),    /* Aşağı Orta Gri */
+            0 7.5px 5px 8px rgba(120, 120, 120, 0.2),   /* Aşağı Açıkça Gri */
+            0 10px 2.5px 5px rgba(170, 170, 170, 0.1);   /* Aşağı Daha Açık Gri */
+    }
+    100% {
+        box-shadow:
+            0 0 3px 1px rgba(0, 0, 0, 0.5),
+            0 0 5px 2px rgba(30, 30, 30, 0.4),
+            0 0 7px 3px rgba(0, 0, 139, 0.302),
+            0 0 9px 4px rgba(65, 105, 225, 0.2),
+            0 0 11px 5px rgba(80, 80, 80, 0.15),
+            0 0 13px 6px rgba(120, 120, 120, 0.1),
+            0 0 15px 7px rgba(170, 170, 170, 0.05);
+    }
+}
+
+#contact {
+    display: grid;
+    grid-template-rows: 1fr 0.5fr;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 5%;
+    justify-content: center;
+    background-image: linear-gradient(to bottom,
+    rgba(0, 0, 139, 0.5) 0%,         /* Koyu Mavi (Yarı Şeffaf) */
+    rgba(0, 0, 139, 0.3) 25%,        /* Biraz daha açık koyu mavi */
+    #ADD8E6 50%,                     /* Açık Mavi */
+    #E0FFFF 75%,                     /* Çok Açık Mavi / Cyan */
+    #F0F8FF 100%                     /* En Açık Mavi / Alice Blue */
+    );
+    background-size: 100% 200%; /* Arka planı dikeyde iki katına çıkarıyoruz */
+    animation: flowBackground 15s linear infinite; /* Animasyon hızı ve tekrarı */
+}
+
+.contactInfo {
+    color: white;
+    padding-top: 7rem;
+}
+
+#contactLeft h2,#contactLeft hr,#contactLeft #email {
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem#000000);
+}
+
+#contactLeft, #contactRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contactRight{
+    filter: drop-shadow(0.1rem 0.1rem 1.5rem#000000);
+    opacity: 0;
+    transform: translateY(100px); /* Adjust as needed for desired starting point */
+    transition: opacity 0.8s ease-out, transform 3s ease-out; /* Animasyon geçişi */
+}
+
+#contactRight.is-visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#contactFooter {
+    filter: drop-shadow(0.1rem 0.1rem 0.3rem#000000);
+    margin-bottom: 0px;
+    grid-column: span 2;
+    height: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#contactRight img {
+    width: 7rem;
+    filter: drop-shadow(1.3rem 1.3rem 0.3rem#ffffff);
+}
+
+#contactRight img:hover {transform: scale(1.1);}
+
+#insta {position: relative; right: 150%;}
+#github {position: relative; left: 150%;}
+
+hr{border-bottom:2px solid white; box-shadow: 0.25rem 0.25rem 0.25rem rgba(0, 0, 139, 0.5);}
+
+#contactSpan {position: relative; bottom: 30%; right: 30%;}
+
+#contactSpan {text-shadow: none !important;}
+
+/* media queries below*/
+
+
+/* ========================================= */
+/* Media Queries for Responsive Design */
+/* ========================================= */
+
+/* --- Tablet and Smaller Devices (max-width: 1024px) --- */
+@media (max-width: 1024px) {
+    #header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #myname {
+        width: 12rem;
+        height: 3.5rem;
+        font-size: 0.9rem; /* Adjust font size for name */
+    }
+
+    #myname h2 {
+        font-size: 1.3rem; /* Adjust heading font size within myname */
+    }
+
+    .headerButtons {
+        width: 4.5rem;
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+
+    #entranceContent {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    #entranceLeft, #entranceRight {
+        padding-top: 1rem;
+        width: 90%;
+        padding-left: 1rem; padding-right: 1rem;
+        margin-bottom: 2rem; /* Add space between sections */
+    }
+
+    #entranceRight {
+        margin-top: 0rem; /* Adjust top margin for image */
+        padding: 0rem;
+    }
+
+    #profile {
+        width: 25rem; /* Adjust profile image size */
+        margin-bottom: 0; /* Reset margin */
+    }
+
+    #entranceRight>img {margin-top: 2rem;}
+
+    #introduceText {
+        font-size: 2rem; /* Smaller heading */
+    }
+
+    #entranceLeft p {
+        font-size: 1rem; /* Smaller paragraph text */
+    }
+
+
+    #aboutContent {
+        width: 90%;
+        flex-direction: column; /* Stack about sections */
+        height: auto; /* Allow height to adjust based on content */
+        margin-bottom: 4rem;
+        margin-top: 2rem;
+    }
+
+    #aboutLeft, #aboutRight {
+        width: 100%;
+        text-align: center;
+        margin-left: 0; /* Reset margin */
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #aboutLeft {
+        justify-content: center; /* Center image */
+        margin-bottom: 2rem;
+    }
+
+    #aboutProfile {
+        width: 50%; /* Adjust about image size */
+    }
+
+    #aboutRight h2, #projectText h2, #skillsTitleText h2, .contactInfo h2 {
+        font-size: 1.6rem; /* Adjust section titles */
+        margin-top: 1.5rem;
+    }
+
+    #aboutRight p, #projectText p, .projectDescription, .skillText {
+        font-size: 0.95rem; /* Adjust paragraph text */
+    }
+
+    #projectText {
+        width: 90%; /* Wider text container */
+        margin-left: 5%; /* Center it */
+        text-align: center; /* Center text within container */
+    }
+
+    #projectGrid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-fit for columns */
+        grid-template-rows: auto; /* Allow rows to adjust */
+        gap: 1.5rem;
+        padding: 0 1.5rem; /* Add some padding */
+    }
+
+    .projectBox {
+        padding: 0.8rem;
+    }
+
+    /* Reset hover transform for project boxes on smaller screens if they become too large */
+    #projectGrid:hover .projectBox:hover {
+        transform: scale(1.1); /* Less aggressive scale on hover */
+    }
+
+    .projectBox:hover {
+        transform: scale(1.1); /* Less aggressive scale on hover */
+    }
+
+    .projectDescription {
+        max-width: none; /* Allow full width */
+        font-size: 0.9rem;
+    }
+
+    #skills {
+        width: 90%;
+        margin: 2rem 0;
+        padding: 0 1.5rem;
+    }
+
+    .skillContent {
+        flex-direction: column; /* Stack skill sections */
+        align-items: center; /* Center items */
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .skillParagraph {
+        width: 90%; /* Wider paragraph */
+        text-align: center; /* Center skill text */
+        margin-bottom: 1.5rem;
+    }
+
+    .skillImg {
+        width: 40%; /* Adjust skill image size */
+        margin-bottom: 2rem; /* Space between image and next section */
+    }
+
+    #contact {
+        grid-template-columns: 1fr; /* Single column for contact */
+        grid-template-rows: auto auto auto; /* Adjust rows */
+        height: auto;
+        padding: 2rem 1rem; /* Add padding */
+    }
+
+    #contactLeft, #contactRight {
+        padding-top: 2rem; /* Adjust padding */
+        grid-column: span 1; /* Ensure they take full width */
+    }
+    
+    #contactLeft {
+        order: 1; /* Keep contact info at top */
+    }
+
+    #contactRight {
+        order: 2; /* Social media below contact info */
+        flex-direction: column; /* Display social icons in a row */
+        gap: 1.5rem; /* Space between icons */
+    }
+    #email {padding-left: 1rem; text-align: center;}
+    #contactRight img {
+        width: 4.5rem; /* Smaller social icons */
+        padding: 0rem 6rem;
+        filter: drop-shadow(0.5rem 0.5rem 0.2rem #000000); /* Adjust shadow */
+    }
+
+    #contactRight img:hover {
+        transform: scale(1.05); /* Less aggressive scale */
+    }
+
+    #insta, #github {
+        position: static; /* Reset absolute positioning */
+        right: auto;
+        left: auto;
+        transform: none; /* Clear any previous transforms */
+    }
+
+    #contactFooter {
+        order: 3; /* Footer at the very bottom */
+        height: auto; /* Allow height to adjust */
+        padding-bottom: 1rem; /* Add some bottom padding */
+        text-align: center;
+        font-size: 0.9rem; /* Smaller footer text */
+    }
+
+    #contactSpan {
+        position: static; /* Reset absolute positioning */
+        transform: none;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 1rem; /* Space below contact span */
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    #myname {
+        width: 7.5rem;
+        height: 3rem;
+        font-size: 0.9rem; /* Adjust font size for name */
+    }
+
+    #myname h2 {
+        font-size: 1.1rem; /* Adjust heading font size within myname */
+    }
+    .headerButtons {
+        width: 3.5rem;
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    #myname {
+        width: 8rem;
+        height: 2.5rem;
+    }
+
+    #myname h2 {
+        font-size: 1.3rem;
+    }
+
+    #header {display: flex; flex-direction: column; padding: 1rem 0rem;}
+
+    #headerButtonsSec {
+        gap: 0.5rem;
+    }
+
+    .headerButtons {
+        width: 3.2rem;
+        font-size: 0.8rem;
+        padding: 0.15rem;
+    }
+
+    #entranceLeft, #entranceRight, #aboutLeft, #aboutRight,
+    #projectText, .skillParagraph, #skillsTitleText {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    #entranceRight>img {
+        width: 90%;    
+    }
+
+    #introduceText {
+        font-size: 1.5rem;
+    }
+
+    #entranceLeft p {
+        font-size: 0.85rem;
+    }
+
+    #aboutProfile {
+        width: 80%; /* Smaller about image */
+    }
+
+    #aboutRight h2, #projectText h2, #skillsTitleText h2, .contactInfo h2 {
+        font-size: 1.2rem;
+    }
+
+    #aboutRight p, #projectText p, .projectDescription, .skillText {
+        font-size: 0.8rem;
+    }
+
+    .skillImg {
+        width: 60%; /* Even smaller skill images */
+    }
+
+    #contact {display: flex; flex-direction: column; padding-bottom: 0px; padding-top: 5rem;}
+
+    #contactRight img {
+        width: 3rem; /* Smallest social icons */
+        padding: 0rem 1rem;
+    }
+
+    #contactRight {
+        margin: 0px; padding: 0px;
+        flex-direction: row;
+    }
+
+    #email {padding-bottom: 6rem; margin: 0px;padding-top: 6rem; text-align: center; padding-left: 0px;}
+
+    #contactFooter {margin:0rem; padding-top: 6rem;}
+
+    #contactFooter p {
+        font-size: 0.8rem;
+    }
+
+    #projectText {margin-left: 0%;}
+
+    .projectDescription {
+        font-size: 0.75rem;
+    }   
+
+    #contactFooter> hr {
+        width: 10rem;
+    }
+}
